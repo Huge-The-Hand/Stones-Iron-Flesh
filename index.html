@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        function computerPlay(){
+            var numGen = Math.floor(Math.random()*3);
+            switch (numGen) {
+                case 0:
+                    return "rock";
+                    break;
+                case 1:
+                    return "paper";
+                    break;
+                case 2:
+                    return "scissor";
+                    break;    
+            
+                default: 
+                    return "Something went wrong!";
+                    break;
+            }
+
+        }
+
+        function userPlay() {
+            var playerInput = prompt('please enter rock, paper or scissor to play-mind the spelling');
+            var pInput = playerInput.toLowerCase();
+            return pInput;
+           
+        }
+        
+        
+        function playRound(computerSelection,playerSelection) {
+            var playerSelection = userPlay();
+            var computerSelection = computerPlay();
+            const gameState = (playerSelection+computerSelection);
+            
+            switch (gameState) {
+                case "paperpaper":
+                    return "Its a draw! paper vs paper";
+                    break;
+                case "paperrock":
+                    return "You win! paper covers rock";
+                    break;
+                case "paperscissor":
+                    return "You lose! scissor cuts paper";
+                    break;    
+
+                case "rockpaper":
+                    return "You lose! paper covers rock";
+                    break;
+                case "rockrock":
+                    return "Its a draw! rock vs rock";
+                    break;
+                case "rockscissor":
+                    return "You win! rock smashes scissor";
+                    break;
+
+                case "scissorpaper":
+                    return "You win! scissor shredds paper";
+                    break;
+                case "scissorrock":
+                    return "You lose! scissor can't even scratch rock";
+                    break;
+                case "scissorscissor":
+                    return "Its a draw! how disappointing scissor vs scissor";
+                    break;        
+                default:
+                    break;
+            }
+
+            
+                
+        }         
+        
+    </script>
+</body>
+</html>
+<footer></footer>
