@@ -32,49 +32,79 @@
            
         }
         
-        
+        let scoreCount = 0;
+        let pcScoreCount = 0;
+      
         function playRound(computerSelection,playerSelection) {
             var playerSelection = userPlay();
             var computerSelection = computerPlay();
             const gameState = (playerSelection+computerSelection);
-            
             switch (gameState) {
                 case "paperpaper":
                     return "Its a draw! paper vs paper";
                     break;
                 case "paperrock":
+                    scoreCount += 1;
                     return "You win! paper covers rock";
                     break;
                 case "paperscissor":
+                    pcScoreCount += 1;
                     return "You lose! scissor cuts paper";
                     break;    
 
                 case "rockpaper":
+                    pcScoreCount += 1;
                     return "You lose! paper covers rock";
                     break;
                 case "rockrock":
                     return "Its a draw! rock vs rock";
                     break;
                 case "rockscissor":
+                    scoreCount += 1;
                     return "You win! rock smashes scissor";
                     break;
 
                 case "scissorpaper":
+                    scoreCount += 1;
                     return "You win! scissor shredds paper";
                     break;
                 case "scissorrock":
+                    pcScoreCount += 1;
                     return "You lose! scissor can't even scratch rock";
                     break;
                 case "scissorscissor":
                     return "Its a draw! how disappointing scissor vs scissor";
                     break;        
                 default:
+                  return "something didnt work right"
                     break;
             }
 
             
                 
-        }         
+        } 
+
+    function game() {
+        var gameCount = 0;
+             
+
+        while (gameCount < 5) {
+            gameCount++;
+            console.log(playRound());
+            
+        }
+        if (scoreCount == pcScoreCount) {
+            return"Its a draw! the computer score is "+pcScoreCount;
+            
+        }
+        else if (scoreCount > pcScoreCount){
+            return "You win your score is "+scoreCount;
+        }
+        else {
+            return "You lose the computer score is pc"+pcScoreCount;
+        }
+    }    
+
         
     </script>
 </body>
